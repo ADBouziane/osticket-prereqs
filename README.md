@@ -39,46 +39,46 @@ This project documents the prerequisites and installation of the open-source hel
 
 <h3>1) Create a Windows 10 VM in Azure</h3>
 Provision a Windows 10 VM (2 vCPUs / 8 GB RAM), place it in a new Resource Group, and allow RDP.
-<p><img src="https://i.imgur.com/DJmEXEB.png" height="80%" width="80%" alt="Azure VM creation"/></p>
+<p><img src="images/STEP1.png" height="80%" width="80%" alt="Azure VM creation"/></p>
 <br />
 
 <h3>2) Connect via RDP</h3>
 Use the VM’s public IP and your credentials to sign in with Remote Desktop.
-<p><img src="https://i.imgur.com/DJmEXEB.png" height="80%" width="80%" alt="RDP sign-in"/></p>
+<p><img src="images/STEP2.png" height="80%" width="80%" alt="RDP sign-in"/></p>
 <br />
 
 <h3>3) Download and Extract osTicket Installation Files</h3>
 Download the provided installation bundle and extract it on the Desktop into a folder (e.g., <code>osTicket-Installation-Files</code>).
-<p><img src="https://i.imgur.com/DJmEXEB.png" height="80%" width="80%" alt="Download and extract installation files"/></p>
+<p><img src="images/STEP3.png" height="80%" width="80%" alt="Download and extract installation files"/></p>
 <br />
 
 <h3>4) Enable IIS + CGI</h3>
 Control Panel → Programs → “Turn Windows features on or off” → Enable <b>IIS</b> and under “Application Development Features” enable <b>CGI</b>. Test by browsing to <code>http://127.0.0.1</code>.
-<p><img src="https://i.imgur.com/DJmEXEB.png" height="80%" width="80%" alt="Enable IIS and CGI"/></p>
-<p><img src="https://i.imgur.com/DJmEXEB.png" height="80%" width="80%" alt="Default IIS page"/></p>
+<p><img src="images/STEP4.png" height="80%" width="80%" alt="Enable IIS"/></p>
+<p><img src="images/STEP4.1.png" height="80%" width="80%" alt="Enable CGI"/></p>
+<p><img src="images/STEP4.3.png" height="80%" width="80%" alt="Default IIS page"/></p>
 <br />
 
 <h3>5) Install PHP Manager and URL Rewrite</h3>
 From the osTicket installation files, install <b>PHP Manager for IIS</b> and the <b>IIS URL Rewrite Module</b>.
-<p><img src="https://i.imgur.com/DJmEXEB.png" height="80%" width="80%" alt="Install PHP Manager & URL Rewrite"/></p>
+<p><img src="images/STEP5.1.png" height="80%" width="80%" alt="Install PHP Manager"/></p>
+<p><img src="images/STEP5.2.png" height="80%" width="80%" alt="Install URL Rewrite"/></p>
 <br />
+
 
 <h3>6) Configure PHP</h3>
 Create <code>C:\PHP</code> and extract PHP 7.3.x binaries there. In IIS → PHP Manager → “Register new PHP version” and select <code>C:\PHP\php-cgi.exe</code>. Restart IIS.
-<p><img src="https://i.imgur.com/DJmEXEB.png" height="80%" width="80%" alt="C:\PHP contents"/></p>
-<p><img src="https://i.imgur.com/DJmEXEB.png" height="80%" width="80%" alt="Register PHP in IIS"/></p>
-<br />
+<p><img src="images/STEP6.png" height="80%" width="80%" alt="C:\PHP contents"/></p>
 
 <h3>7) Install MySQL & HeidiSQL</h3>
 Install MySQL 5.5.62 with username <code>root</code> / password <code>root</code>. Install HeidiSQL to manage the database.
-<p><img src="https://i.imgur.com/DJmEXEB.png" height="80%" width="80%" alt="MySQL setup"/></p>
-<p><img src="https://i.imgur.com/DJmEXEB.png" height="80%" width="80%" alt="HeidiSQL connection"/></p>
+<p><img src="images/STEP7.png" height="80%" width="80%" alt="MySQL setup"/></p>
 <br />
 
 <h3>8) Prepare osTicket Web Files</h3>
 Extract osTicket → copy the <code>upload</code> folder into <code>C:\inetpub\wwwroot</code> → rename it to <b>osTicket</b>. Restart IIS, then browse to the installer page in IIS Manager → Sites → Default Web Site → osTicket → Browse.
-<p><img src="https://i.imgur.com/DJmEXEB.png" height="80%" width="80%" alt="Copy upload/ to wwwroot and rename"/></p>
-<p><img src="https://i.imgur.com/DJmEXEB.png" height="80%" width="80%" alt="osTicket installer page"/></p>
+<p><img src="images/STEP8.1.png" height="80%" width="80%" alt="Copy upload/ to wwwroot and rename"/></p>
+<p><img src="images/STEP8.2.png" height="80%" width="80%" alt="osTicket installer page"/></p>
 <br />
 
 <h3>9) Finalize Installation</h3>
@@ -87,8 +87,8 @@ Extract osTicket → copy the <code>upload</code> folder into <code>C:\inetpub\w
 - In HeidiSQL, create a database named <code>osTicket</code>.  
 - Complete the web installer with DB info (<code>root/root</code>) and create your Admin account.  
 - Verify access to both the Admin portal (<code>/osTicket/scp/</code>) and the End-User portal (<code>/osTicket/</code>).  
-<p><img src="https://i.imgur.com/DJmEXEB.png" height="80%" width="80%" alt="osTicket config"/></p>
-<p><img src="https://i.imgur.com/DJmEXEB.png" height="80%" width="80%" alt="Admin & End-User portals"/></p>
+<p><img src="images/STEP9.png" height="80%" width="80%" alt="osTicket config"/></p>
+<p><img src="images/STEP9.2.png" height="80%" width="80%" alt="Admin & End-User portals"/></p>
 <br />
 
 ---
